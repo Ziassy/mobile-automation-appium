@@ -63,8 +63,8 @@ exports.config = {
         "appium:deviceName": 'emulator-pau',
         "appium:platformVersion": '11.0',
         "appium:app": path.join(process.cwd(), './test/apk/Diet_meal.apk'), // get location apk
-        "appium:appPackage": "io.appium.android.apis",
-        "appium:appActivity": ".ApiDemos",
+        "appium:appPackage": "com.fghilmany.dietmealapp",
+        "appium:appActivity": "com.fghilmany.dietmealapp.ui.main.MainActivity",
         "appium:noReset": true,
         "appium:forceAppLaunch": true
     }],
@@ -115,7 +115,19 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: [
+        [
+            'appium',
+            {
+                args: {
+                    address: '127.0.0.1',
+                    port: 4723,
+                },
+                logPath: './log',
+                command: 'appium'
+            }
+        ]
+    ],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
