@@ -46,10 +46,6 @@ class HomePage extends Page {
     await this.selectActivity.click();
     await this.clickButtonFinish.click();
   }
-
-  open () {
-    return super.open();
-  }
 }
 
 module.exports = new HomePage();
