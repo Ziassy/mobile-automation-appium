@@ -1,14 +1,14 @@
 const { expect } = require('chai');
+const HomePage = require('../pageobjects/home.page')
 
 describe('As a user I want to view home page ', () => {
+
+  const name = 'zia'
+  const weight = '44'
+  const heigh = '158'
+
   it('User view home page', async () => {
-    await $('#et_name').setValue("zia");
-    await $('#et_weight').setValue("44");
-    await $('#et_height').setValue("158");
-    await $('#rb_female').click();
-    await $('#bt_next').click();
-    await $('#rb_rest').click();
-    await $('#bt_finish').click();
+    await HomePage.openDashboard(name, weight, heigh)
 
     const pageTitle = await $('#tv_header_desc');
     const menuHome = await $('#navigation_home');
