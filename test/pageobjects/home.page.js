@@ -1,6 +1,6 @@
 const Page = require('./page');
 
-class HomePage extends Page {
+class HomePage {
   txt_name = '#et_name';
   txt_weight = '#et_weight';
   txt_height = '#et_height';
